@@ -26,155 +26,44 @@ header {
     color: white;
     padding: 20px;
     display: flex;
-    align-items: center;  /* Center the items vertically */
-    justify-content: space-between;  /* Space out the logo and text */
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     text-align: left;
 }
 
 .logo-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 20px;  /* More space between logo and text */
+    gap: 20px;
+    flex: 1 1 300px;
 }
 
 .logo {
-    width: 120px;  /* Increased size */
-    height: auto;  /* Keep aspect ratio */
+    width: 100px;
+    height: auto;
     object-fit: contain;
 }
 
 .subtitle {
     font-style: italic;
     color: #ccc;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 /* === Navigation === */
 nav {
-    margin-top: 20px;
+    width: 100%;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    padding: 0;
-    background-color: #333;
-    flex-wrap: wrap;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 10px 15px;
-    transition: color 0.3s, background 0.3s;
-}
-
-.nav-links li a:hover {
-    background-color: #0077cc;
-    color: white;
-    border-radius: 5px;
-}
-
-/* === Gallery Section === */
-#gallery {
-    background-color: #fff;
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 0 10px;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* === Footer === */
-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-/* === Global Styles === */
-body {
-    background-color: #f4f7fa;
-    font-family: 'Poppins', sans-serif;
+    gap: 1.5rem;
+    padding: 10px 0;
     margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-main {
-    padding: 40px 20px;
-}
-
-section {
-    margin-bottom: 60px;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-/* === Header === */
-header {
-    background-color: #222;
-    color: white;
-    padding: 20px;
-    display: flex;
-    align-items: center;  /* Center the items vertically */
-    justify-content: space-between;  /* Space out the logo and text */
-    text-align: left;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;  /* More space between logo and text */
-}
-
-.logo {
-    width: 120px;  /* Increased size */
-    height: auto;  /* Keep aspect ratio */
-    object-fit: contain;
-}
-
-.subtitle {
-    font-style: italic;
-    color: #ccc;
-    margin-top: 10px;
-}
-
-/* === Navigation === */
-nav {
-    margin-top: 20px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 0;
     background-color: #333;
     flex-wrap: wrap;
 }
@@ -202,7 +91,7 @@ nav {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 0 10px;
 }
@@ -227,14 +116,8 @@ footer {
     text-align: center;
     padding: 20px;
 }
-/* Reusable container class */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-/* === YouTube Banner Section === */
+/* === YouTube Section === */
 #youtube {
     text-align: center;
     margin-bottom: 60px;
@@ -244,11 +127,12 @@ footer {
     position: relative;
     display: inline-block;
     text-decoration: none;
+    width: 100%;
+    max-width: 700px;
 }
 
 .youtube-banner {
     width: 100%;
-    max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -256,12 +140,76 @@ footer {
 
 .click-icon {
     position: absolute;
-    bottom: 15px;
-    right: 20px;
-    background-color: #0077cc;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        bottom: 10px;
+        right: 10px;
+        background-color: #0077cc;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        white-space: nowrap;
+        max-width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
+
+/* === Container Class === */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === Media Queries for Responsiveness === */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-container {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 80px;
+    }
+
+    .click-icon {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .nav-links li a {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
 }
